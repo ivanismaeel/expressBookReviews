@@ -68,7 +68,7 @@ regd_users.put("/auth/review/:isbn", (req, res) => {
     }
 
     books[isbn].reviews[username] = review;
-    return res.status(200).json({ message: "Review added/updated successfully", reviews: books[isbn].reviews });
+    return res.status(200).json({ message: `The Review for the book with ISBN ${isbn} has been added/updated successfully` });
 });  
 
 // Task 9: Delete a book review
@@ -81,7 +81,7 @@ regd_users.delete("/auth/review/:isbn", (req, res) => {
     }
 
     delete books[isbn].reviews[username];
-    return res.status(200).json({ message: "Review deleted successfully" });
+    return res.status(200).json({ message: `Review for the ISBN ${isbn} deleted successfully` });
 });
 
 module.exports.authenticated = regd_users;
